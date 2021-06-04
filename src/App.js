@@ -25,7 +25,7 @@ function App(props) {
   return (
     <Router>
       <div>
-        <Route exact path='/' 
+        <Route exact path='/user-profiles' 
           render={(props) => (
             <Users {...props} users={users}/>
           )}

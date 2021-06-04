@@ -80,7 +80,7 @@ const Header = (props) => {
                 }
                 {console.log("p", props)}
                 <button className="sign-out"
-                    onClick={()=>props.history.push('/')}
+                    onClick={()=>props.history.push('/user-profiles')}
                 >
                     Sign out
                 </button>

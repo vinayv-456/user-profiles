@@ -1,0 +1,42 @@
+.menu-container{
+    background-color:blue;
+    width: 20vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    border-radius: 20px;
+}
+
+.links{
+    color: #cfd4d2;
+    padding: 8px;
+    font-weight: 300;
+}
+
+.active-link{
+    color: white;
+    padding: 8px;
+    font-weight: bold;
+    /* background-color: aqua; */
+}
+
+.line{
+    border-bottom: 1px solid #aeb8b4;
+    width: 100%;
+}
+
+.link{
+    text-decoration: underline;
+}
+.menu-item{
+    display: flex;
+    justify-content: space-between;
+}
+.arrow-icon{
+    color: white;
+    padding-top: 5px;
+}
+
+body{
+    color: #524e4e;
+}

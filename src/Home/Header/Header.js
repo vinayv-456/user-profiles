@@ -83,7 +83,7 @@ const Header = (props) => {
                                 style={{ display: 'flex'}} 
                                 className="cursor"
                                 onClick={()=>{setSwitchModal(false); 
-                                    props.history.push(`/home/${loadUser.id}`)
+                                    props.history.push(`/home/${loadUser.id}/`)
                                 }}
                             >
                                 <img className="profile-pic-style" src={loadUser.profilepicture} ></img>

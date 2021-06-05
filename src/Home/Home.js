@@ -39,11 +39,11 @@ const Home = (props) => {
             {console.log("props?????????", props)}
             <div style={{ display: 'flex', flexDirection: 'column', color: 'white', width: '100%', margin: '20px' }}>
                 <Link className="link" to={`${props.match.url}/profile`}>
-                    <div className={(path != "profile" || path > 0) ? "links" : "active-link"}>
+                    <div className={(path === "profile" || path === '') ? "active-link" : "links"}>
                         <div className="menu-item">
                             <div>Profile</div>
                             {
-                                path == "profile"
+                                (path == "profile" || path === '')
                                 &&
                                 <KeyboardArrowRightIcon className="arrow-icon" />
                             }

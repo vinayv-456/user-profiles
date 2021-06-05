@@ -1,8 +1,6 @@
 import React from 'react'
 import './Profile.css'
 import Map from '../../assets/pictures/map.png'
-import { useEffect } from 'react'
-import { useState } from 'react'
 
 const Profile = ({user}) => {
 

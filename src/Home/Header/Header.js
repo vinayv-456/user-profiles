@@ -18,17 +18,17 @@ const Header = (props) => {
         {
             let userCount = 0;
             const tempLoadUsers = props.users.filter((user)=>{
-                console.log(user.id > props.user.id, userCount);
+                // console.log(user?.id > props.user?.id, userCount);
                 let condition
-                switch (props.user.id) {
+                switch (props.user?.id) {
                     case 1:
-                        condition = (user.id === props.user.id+1) || (user.id === props.user.id+2);
+                        condition = (user.id === props.user?.id+1) || (user.id === props.user?.id+2);
                         break;
                     case (props.users.length):
-                        condition = (user.id === props.user.id-2) || (user.id === props.user.id-1);
+                        condition = (user.id === props.user?.id-2) || (user.id === props.user?.id-1);
                         break;
                     default:
-                        condition = (user.id === props.user.id+1) || (user.id === props.user.id-1);
+                        condition = (user.id === props.user?.id+1) || (user.id === props.user?.id-1);
                         break;
                 }
                 
@@ -58,8 +58,8 @@ const Header = (props) => {
         <div style={{display:'flex', justifyContent:'space-between', marginBottom:'15px'}}>
             <div style={{fontSize:'1.2rem'}}>{getHeading()}</div>
             <div style={{display:'flex', cursor:'pointer'}} onClick={()=>setSwitchModal(!switchModal)}>
-                <img className="profile-pic-style" style={{marginTop:'5px'}} src={props.user.profilepicture} ></img>
-                <div style={{fontSize:'1.2rem'}}>{props.user.name}</div>
+                <img className="profile-pic-style" style={{marginTop:'5px'}} src={props.user?.profilepicture} ></img>
+                <div style={{fontSize:'1.2rem'}}>{props.user?.name}</div>
             </div>
 
         </div>
@@ -68,10 +68,10 @@ const Header = (props) => {
             switchModal
             &&
             <div className="modal-div">
-                {console.log("props///",props)}
-                <img className="active-profile-pic-style" src={props.user.profilepicture} ></img>
-                <div>{props.user.name}</div>
-                <div style={{color:'#aeb8b4'}}>{props.user.email}</div>
+                {/* {console.log("props///",props)} */}
+                <img className="active-profile-pic-style" src={props.user?.profilepicture} ></img>
+                <div>{props.user?.name}</div>
+                <div style={{color:'#aeb8b4'}}>{props.user?.email}</div>
                 <div className="line margin-vertical"></div>
                 {
                     loadUsers
@@ -86,7 +86,7 @@ const Header = (props) => {
                                     props.history.push(`/home/${loadUser.id}/`)
                                 }}
                             >
-                                <img className="profile-pic-style" src={loadUser.profilepicture} ></img>
+                                <img className="profile-pic-style" src={loadUser?.profilepicture} ></img>
                                 <div>{loadUser.name}</div>
                             </div>
                             {
@@ -98,7 +98,7 @@ const Header = (props) => {
                         }
                     )
                 }
-                {console.log("p", props)}
+                {/* {console.log("p", props)} */}
                 <button className="sign-out"
                     onClick={()=>props.history.push('/user-profiles')}
                 >

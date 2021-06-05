@@ -40,3 +40,10 @@
 body{
     color: #524e4e;
 }
+
+.center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}

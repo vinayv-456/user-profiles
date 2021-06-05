@@ -6,6 +6,13 @@ import './Header.css'
 const Header = (props) => {
     const [switchModal, setSwitchModal] = useState(false);
     let [loadUsers, setLoadUsers] = useState([]);
+    let [heading, setHeading] = useState([]);
+    useEffect(()=>{
+        const temp = props.location.pathname.split('/');
+        const path = temp[temp.length-1];
+        setHeading(path);  
+    }, [props.location.pathname])
+
     useEffect(()=>{
         if(props?.users.length>0)
         {
@@ -32,11 +39,24 @@ const Header = (props) => {
             setLoadUsers(tempLoadUsers);
         }
     }, [props.user])
+
+    const getHeading = () => {
+        switch (heading) {
+            case 'posts':
+                return "Posts";
+            case 'gallery':
+                return "Gallery";
+            case 'todo':
+                return "ToDo";
+            default:
+                return "Profile";
+        }
+    }
+
     return (
     <div>
         <div style={{display:'flex', justifyContent:'space-between', marginBottom:'15px'}}>
-            <div style={{fontSize:'1.2rem'}}>{props.heading}</div>
-            
+            <div style={{fontSize:'1.2rem'}}>{getHeading()}</div>
             <div style={{display:'flex', cursor:'pointer'}} onClick={()=>setSwitchModal(!switchModal)}>
                 <img className="profile-pic-style" style={{marginTop:'5px'}} src={props.user.profilepicture} ></img>
                 <div style={{fontSize:'1.2rem'}}>{props.user.name}</div>
@@ -84,8 +104,6 @@ const Header = (props) => {
                 >
                     Sign out
                 </button>
-                
-                
             </div>    
         }
         </div>

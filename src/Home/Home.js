@@ -31,7 +31,6 @@ const Home = (props) => {
 
     useEffect(() => {
         setUser(loadUserDetails(props.match.params.id)[0])
-        console.log("chhh", props.match.params.id)
     }, [props.match.params.id])
 
     return <div style={{ display: 'flex', padding: '35px', position: 'relative' }}>
@@ -93,7 +92,8 @@ const Home = (props) => {
             </div>
             {/* </ul> */}
         </div>
-        <div style={{ width: '80vw', height: '100vh', marginLeft: '30px', marginRight: '30px' }}>
+        <div style={{ width: '80vw', height: '100vh', marginLeft: '30px', marginRight: '30px'}}>
+            <Header {...props} user={user} users={users} />
             <Switch>
                 {/* <Route path="/"
                         <Redirect from="/home/:id" to="/home/:id/posts"/> 
@@ -103,35 +103,22 @@ const Home = (props) => {
                 /> */}
                 <Route path={`/home/:id/posts`}
                     render={(props) => (
-                        <div>
-                            <Header heading="Posts" user={user} users={users} />
-                            <CommingSoon {...props} />
-                        </div>
+                        <CommingSoon {...props} />
                     )}
                 />
                 <Route path={`/home/:id/gallery`}
                     render={(props) => (
-                        <div>
-                            <Header heading="Gallery" user={user} users={users} />
-                            <CommingSoon {...props} />
-                        </div>
+                        <CommingSoon {...props} />
                     )}
                 />
                 <Route path={`/home/:id/todo`}
                     render={(props) => (
-                        <div>
-                            <Header heading="ToDo" user={user} users={users} />
-                            <CommingSoon {...props} />
-                        </div>
+                        <CommingSoon {...props} />
                     )}
                 />
                 <Route path={`/home/:id/`}
                     render={(props) => (
-                        <div>
-                            {/* {console.log("hjf", users)} */}
-                            <Header heading="Profile" {...props} user={user} users={users} />
-                            <Profile {...props} user={user} />
-                        </div>
+                        <Profile {...props} user={user} />
                     )}
                 />
             </Switch>
